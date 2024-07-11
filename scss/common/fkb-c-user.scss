@@ -112,6 +112,7 @@ h2.username,
 
   .item,
   .user-stream-item {
+    direction: rtl;
     .excerpt {
       img:not(.thumbnail):not(.site-icon):not(.avatar):not(.emoji):not(.ytp-thumbnail-image) {
         border-radius: var(--d-default-border-radius);
