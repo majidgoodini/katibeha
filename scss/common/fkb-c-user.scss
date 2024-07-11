@@ -13,11 +13,13 @@ h2.username,
 .user-main {
   .about {
     border-radius: var(--d-default-border-radius);
+
     .details {
       @include bg-br;
       padding: 1em;
       border: none;
     }
+
     .secondary {
       padding: 0.5em;
       width: auto;
@@ -25,6 +27,7 @@ h2.username,
       border-radius: var(--d-default-border-radius);
       margin-top: 0.25em;
     }
+
     &.collapsed-info {
       .details {
         background: var(--secondary);
@@ -32,18 +35,22 @@ h2.username,
         border: none;
       }
     }
+
     &.has-background {
       .details {
         padding: 15px;
       }
+
       .user-profile-image {
         border-radius: var(--d-default-border-radius) var(--d-default-border-radius) 0 0;
         margin-bottom: -15px;
       }
+
       .staff-counters {
         margin-bottom: 10px;
       }
     }
+
     .staff-counters {
       border-radius: var(--d-default-border-radius);
     }
@@ -58,6 +65,7 @@ h2.username,
 
 .new-user-wrapper {
   margin-top: 1em;
+
   .user-navigation {
     &.user-navigation-primary {
       @include bg-br;
@@ -66,25 +74,30 @@ h2.username,
       border-bottom: none;
     }
   }
+
   .new-user-content-wrapper {
     position: relative;
     @include bg-br;
     margin-top: 1em;
     min-height: calc(100vh - 20em);
+
     .user-navigation-secondary {
       padding: 0 1em;
       border-bottom: none;
     }
+
     .spinner {
       position: absolute;
       left: calc(50% - 20px);
     }
+
     .user-content {
       padding: 1em;
       border-radius: var(--d-default-border-radius);
       margin-top: 1em;
     }
   }
+
   .topic-list {
     .main-link {
       border: 1px solid var(--primary-low);
@@ -96,6 +109,7 @@ h2.username,
 // User stream
 
 .user-stream {
+
   .item,
   .user-stream-item {
     .excerpt {
@@ -134,6 +148,7 @@ h2.username,
 .user-card,
 .group-card {
   border-radius: var(--d-default-border-radius) !important;
+
   &.show,
   &.no-bg {
     .card-content {
@@ -141,54 +156,70 @@ h2.username,
       border: 1px solid var(--primary-low);
     }
   }
+
   h3 {
     padding: 0.25em 0.5em;
-  }  
+  }
 }
 
 #user-card {
   .metadata {
     margin-left: -0.25em;
-    > * {
+
+    >* {
       display: inline-flex;
       border-radius: var(--d-default-border-radius);
       margin: 0.25em;
       border: 1px solid var(--primary-low-mid);
+
       &:empty {
         display: none;
       }
     }
+
     span {
       order: 0;
+
       &.desc {
         padding-right: 5px;
       }
     }
+
     div span.desc {
       padding-right: 0;
     }
+
     h3:nth-child(3) {
       span:nth-child(2) {
         padding-left: 5px;
       }
     }
+
     .last-seen-metadata {
       order: -1;
     }
   }
 }
 
+.chat-direct-message-btn {
+  button {
+    background: var(--primary-low);
+  }
+}
+
 .follow-button-container {
   button {
-    background: var(--fkb-btn);
+    background: var(--tertiary);
   }
 }
 
 .follow-statistics-user-card h3 {
   color: var(--primary-high);
+
   .value {
     color: var(--primary);
   }
+
   &:nth-child(2) {
     &:before {
       content: "I";
@@ -201,32 +232,38 @@ h2.username,
 .location-and-website.map-location-enabled {
   .user-location-widget {
     align-items: center;
+
     .d-icon-map-marker-alt {
       margin-top: 0;
       background: var(--fkb-btn);
       width: 2em;
       height: 2em;
       border-radius: var(--d-button-border-radius);
-      > use {
+
+      >use {
         transform: scale(0.5);
         transform-origin: center;
       }
     }
   }
+
   .replace-location {
+
     .location,
     .website-name,
     .user-profile-website {
       display: flex !important;
       align-items: center;
       margin: 0.5em 0;
+
       .d-icon-globe {
         background: var(--fkb-btn);
         width: 2em;
         height: 2em;
         border-radius: var(--d-button-border-radius);
         margin-right: 5px;
-        > use {
+
+        >use {
           transform: scale(0.5);
           transform-origin: center;
         }
@@ -250,7 +287,9 @@ h2.username,
       @include bg-br;
     }
   }
+
   .me {
+
     .username a,
     .name,
     .title,
@@ -266,17 +305,21 @@ h2.username,
 body.user-activity-page .bookmark-list-wrapper {
   .topic-list.bookmark-list {
     display: table;
+
     .topic-list-body {
       display: table-row-group;
+
       .bookmark-list-item {
         display: table-row;
         background: var(--secondary);
         border-bottom: 1px solid var(--primary-low);
+
         .main-link {
           background: none;
           box-shadow: none;
           border-radius: 0;
           padding: 1em;
+
           .link-bottom-line {
             padding: 0.6em 0;
           }
@@ -290,12 +333,15 @@ body.user-activity-page .bookmark-list-wrapper {
 
 .user-status-picker-wrap .user-status-picker {
   border-radius: var(--d-input-border-radius);
+
   .btn-emoji {
-    border-radius: var(--d-button-border-radius);    
+    border-radius: var(--d-button-border-radius);
   }
+
   .user-status-description {
     box-shadow: none;
   }
+
   &.focused {
     @include fkb-focus;
   }
