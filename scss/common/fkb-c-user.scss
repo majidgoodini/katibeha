@@ -201,17 +201,11 @@ h2.username,
   }
 }
 
-.chat-direct-message-btn {
+.chat-button {
   button {
     background: var(--primary-low);
   }
-}
-
-.follow-button-container {
-  button {
-    background: var(--tertiary);
-  }
-}
+} 
 
 .follow-statistics-user-card h3 {
   color: var(--primary-high);
