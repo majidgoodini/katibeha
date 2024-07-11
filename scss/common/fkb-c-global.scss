@@ -1,5 +1,15 @@
 // FKBC - Global
 
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:url(//forum.namatek.com/uploads/default/original/1X/fddfa795d2aa5451a5ac2910326b889a82c3ed75.woff2) format("woff2")
+}
+a, p, body, h1, h2, h3, h4, h6, input, select, textarea {font-family: IRANSans,sans-serif;}
+
+
 // Global
 
 body {
