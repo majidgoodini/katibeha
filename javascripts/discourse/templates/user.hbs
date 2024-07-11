@@ -400,9 +400,8 @@ function doRedirect() {
 
         window.location.href= window.location.href.replace('/summary','/activity')
 
-}
+    }
 
-window.onload = function() {
     setInterval(function(){
     // Check if the current URL path is '/'
     if (window.location.pathname === '/') {
@@ -422,7 +421,6 @@ doRedirect()
         
         
     },100)
-};
  
 
 </script>
