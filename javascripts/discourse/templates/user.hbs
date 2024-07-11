@@ -403,18 +403,7 @@ function doRedirect() {
     }
 
     setInterval(function(){
-    // Check if the current URL path is '/'
-    if (window.location.pathname === '/') {
-        // Get the element with ID 'intro'
-        var introElement = document.getElementById('intro');
-        // Set the display property to 'block'
-        introElement.style.display = 'block';
-    } else {
-        // If the URL path is not '/', ensure the display property is set to 'none' initially
-        var introElement = document.getElementById('intro');
-        introElement.style.display = 'none';
-    }
-        
+ 
     if (window.location.pathname.startsWith('/u/') && window.location.pathname.includes('/summary')) {
 doRedirect()
 }
