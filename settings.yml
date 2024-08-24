@@ -64,7 +64,6 @@ fkb_panel_items:
   default: >-
     [{"title":"Summary","link":"/my/summary","icon":"user"},
     {"title":"Settings","link":"/my/preferences/account","icon":"cog"},
-    {"title":"Drafts","link":"/my/activity/drafts","icon":"pencil-alt"},
     {"title":"Bookmarks","link":"/my/activity/bookmarks","icon":"bookmark"},
     {"title":"Messages","link":"/my/messages","icon":"envelope"}]
   json_schema: >-
