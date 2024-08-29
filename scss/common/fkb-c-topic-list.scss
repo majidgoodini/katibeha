@@ -152,20 +152,14 @@
 
       .discourse-tags {
         display: flex;
-        margin: 0.5rem 0 0 0;
-
+ 
         a {
           display: inherit;
-          flex: 1 0 auto;
-          justify-content: center;
-          max-width: 100%;
-          line-height: var(--line-height-large);
-          border: 0.5em solid transparent;
-          background: var(--fkb-btn);
-          font-size: var(--font-down-1-rem);
-          margin: 0.25em;
-          border-radius: var(--d-default-border-radius);
-
+           color:#0a66c2;
+           margin-left:0.5rem;
+          &:before {
+            content: '#';
+          }
           &:after {
             content: '';
           }
@@ -185,7 +179,7 @@
 
       .topic-image {
         position: relative;
-        height: #{$topic_image_height};
+        max-height: #{$topic_image_height};
         overflow: hidden;
         width: 100%;
 
