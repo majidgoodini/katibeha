@@ -65,7 +65,7 @@
 
     .byline {
       display: flex;
-      padding: 0 1em;
+      padding: 0 .75rem;
       flex-direction: column;
 
       .topic-list-avatar {
@@ -73,9 +73,9 @@
       }
 
       .author {
-        padding: 1em 0 .5em 0;
+        padding: 0;
         margin-left: auto;
-        margin-top: -1rem;
+        margin-top: 0rem;
 
         a {
           display: flex;
@@ -128,14 +128,15 @@
     }
 
     .link-middle-line {
-      padding: 0.5em 1em 0 1em;
+      padding: .5em .75em 0 .75em;
 
       .topic-statuses {
         padding: 0;
       }
 
       .topic-title {
-        font-size: var(--font-up-3-rem);
+        font-weight: 600;
+        font-size: var(--font-up-2-rem);
         color: var(--tertiary);
         line-height: var(--line-height-medium);
         margin-bottom: 0.5em;
@@ -151,7 +152,7 @@
 
       .discourse-tags {
         display: flex;
-        margin: 1em 0 0 0;
+        margin: 0.5rem 0 0 0;
 
         a {
           display: inherit;
@@ -186,8 +187,7 @@
         position: relative;
         height: #{$topic_image_height};
         overflow: hidden;
-        width: calc(100% + 2em);
-        margin: 0.25em -1em 0 -1em;
+        width: 100%;
 
         &__backdrop {
           position: absolute;
@@ -226,7 +226,7 @@
       .topic-excerpt {
         font-size: var(--font-0-rem);
         color: var(--primary);
-        margin: 0 0 1em 0;
+        margin: 0 0 0.5em 0;
         line-height: var(--line-height-large);
         @include fkb-word-wrap;
       }
@@ -280,6 +280,7 @@
       }
 
       .latest-activity-tlist {
+        margin-left:1rem;
         margin-right: 0.667em;
       }
     }
