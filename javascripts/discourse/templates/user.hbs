@@ -118,18 +118,28 @@
         {{/if}}
         
       {{/unless}}
+      <div style="height: 150px; radios">
       <div
           class="user-profile-image"
-          style={{this.model.profileBackgroundUrl}}
-        ></div>
+          style="{{this.model.profileBackgroundUrl}}"
+        ></div></div>
       <div class="details">
         <div class="primary">
           <PluginOutlet
             @name="before-user-profile-avatar"
             @outletArgs={{hash model=this.model}}
           />
-          <UserProfileAvatar @user={{this.model}} @tagName="" />
+          <div class="avatar-container" style="margin-top: -35px; width: 200px; height: 100px;"> 
+  <UserProfileAvatar 
+    @user={{this.model}} 
+    @tagName=""
+    class="avatar"
+    width="150" 
+    height="75"
+  />
+          </div>
           <div class="primary-textual">
+            <div style="margin-top: -15px; text-alignmen:right;">
             <div class="user-profile-names">
               <div
                 class="{{if this.nameFirst 'full-name' 'username'}}
@@ -168,6 +178,7 @@
                   @outletArgs={{hash model=this.model}}
                 />
               </span>
+            </div>
             </div>
 
             {{#if this.showFeaturedTopic}}
@@ -223,34 +234,92 @@
               </span>
             </div>
 
-            <div class="bio">
-              {{#if this.model.suspended}}
-                <div class="suspended">
-                  {{d-icon "ban"}}
-                  <b>
-                    {{#if this.model.suspendedForever}}
-                      {{i18n "user.suspended_permanently"}}
-                    {{else}}
-                      {{i18n
-                        "user.suspended_notice"
-                        date=this.model.suspendedTillDate
-                      }}
-                    {{/if}}
-                  </b>
-                  <br />
-                  {{#if this.model.suspend_reason}}
-                    <b>{{i18n "user.suspended_reason"}}</b>
-                    {{this.model.suspend_reason}}
-                  {{/if}}
-                </div>
-              {{/if}}
-              {{#if this.isNotSuspendedOrIsStaff}}
-                <HtmlWithLinks>
-                  {{html-safe this.model.bio_cooked}}
-                </HtmlWithLinks>
-              {{/if}}
-            </div>
+<div class="bio" id="bio" style="font-size: medium; cursor: pointer; line-height: 1.6; font-family: Arial, sans-serif;">
+  {{#if this.model.suspended}}
+  <div class="suspended">
+    {{d-icon "ban"}}
+    <b>
+      {{#if this.model.suspendedForever}}
+      {{i18n "user.suspended_permanently"}}
+      {{else}}
+      {{i18n "user.suspended_notice" date=this.model.suspendedTillDate}}
+      {{/if}}
+    </b>
+    <br />
+    {{#if this.model.suspend_reason}}
+    <b>{{i18n "user.suspended_reason"}}</b>
+    {{this.model.suspend_reason}}
+    {{/if}}
+  </div>
+  {{/if}}
 
+  {{#if this.isNotSuspendedOrIsStaff}}
+  <div id="myBio">
+    <HtmlWithLinks>
+      <div id="bio-content" class="truncated-bio" style="
+      display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-wrap: break-word;
+        max-height: 8em;
+        margin-top: -10px;
+        text-align: justify;">        
+        {{html-safe this.model.bio_cooked}}
+      </div>
+      <span id="readMore" onclick="toggleBio()"></span>
+    </HtmlWithLinks>
+  </div>
+  {{/if}}
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const bioContent = document.getElementById('bio-content');
+    const readMoreLink = document.getElementById('readMore');
+
+    // Check if the content is truncated
+    if (bioContent.scrollHeight > bioContent.clientHeight) {
+      // Truncate the content
+      const truncatedContent = bioContent.textContent.slice(0, 250);
+      bioContent.innerHTML = truncatedContent + '...';
+
+      // Show the "Read more" link
+      readMoreLink.style.display = 'block';
+    }
+
+    // Add event listener to toggle button
+    readMoreLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      toggleBioContent();
+    });
+  });
+
+  function toggleBioContent() {
+    const bioContent = document.getElementById('bio-content');
+    const readMoreLink = document.getElementById('readMore');
+
+    if (bioContent.classList.contains('expanded')) {
+      // Collapse the content
+      bioContent.classList.remove('expanded');
+      readMoreLink.textContent = 'Read more';
+
+      // Reset the max-height to hide the full content
+      bioContent.style.maxHeight = null;
+    } else {
+      // Expand the content
+      bioContent.classList.add('expanded');
+      readMoreLink.textContent = 'Read less';
+
+      // Set the max-height to show the full content
+      const fullHeight = bioContent.scrollHeight;
+      bioContent.style.maxHeight = `${fullHeight}px`;
+    }
+  }
+
+
+</script>
             {{#if this.publicUserFields}}
               <div class="public-user-fields">
                 {{#each this.publicUserFields as |uf|}}
@@ -356,15 +425,14 @@
         </div>
         <PluginOutlet
           @name="user-profile-above-collapsed-info"
-          @outletArgs={{hash model=this.model collapsedInfo=this.collapsedInfo}}
+          @outletArgs={{hash model=this.model}}
         />
        
       </div>
     </section>
 
     <div class="new-user-wrapper">
-      <UserNav
-        @user={{this.model}}
+      <UserNav @user={{this.model}}
         @isStaff={{this.currentUser.staff}}
         @isMobileView={{this.site.mobileView}}
         @showActivityTab={{this.showActivityTab}}
@@ -375,8 +443,7 @@
         @currentParentRoute={{this.currentParentRoute}}
         @showRead={{this.showRead}}
         @showDrafts={{this.showDrafts}}
-        @showBookmarks={{this.showBookmarks}}
-      />
+        @showBookmarks={{this.showBookmarks}}/>
 
       <div class="new-user-content-wrapper">
         {{outlet}}
