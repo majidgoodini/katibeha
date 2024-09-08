@@ -425,15 +425,14 @@
         </div>
         <PluginOutlet
           @name="user-profile-above-collapsed-info"
-          @outletArgs={{hash model=this.model collapsedInfo=this.collapsedInfo}}
+          @outletArgs={{hash model=this.model}}
         />
        
       </div>
     </section>
 
     <div class="new-user-wrapper">
-      <UserNav
-        @user={{this.model}}
+      <UserNav @user={{this.model}}
         @isStaff={{this.currentUser.staff}}
         @isMobileView={{this.site.mobileView}}
         @showActivityTab={{this.showActivityTab}}
@@ -444,8 +443,7 @@
         @currentParentRoute={{this.currentParentRoute}}
         @showRead={{this.showRead}}
         @showDrafts={{this.showDrafts}}
-        @showBookmarks={{this.showBookmarks}}
-      />
+        @showBookmarks={{this.showBookmarks}}/>
 
       <div class="new-user-content-wrapper">
         {{outlet}}
