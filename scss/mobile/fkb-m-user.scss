@@ -1,6 +1,9 @@
 // FKBM - User
 
 // User
+.user-nav:not(:has(*:nth-child(5))) {
+  display: none;
+}
 
 .user-main {
   width: calc(100vw - 20px);
