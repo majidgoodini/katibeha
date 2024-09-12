@@ -9,6 +9,25 @@
     background: transparent;
     .details {
       @include bg-br;
+      .user-profile-avatar {
+        margin-left: auto;
+        margin-right: 0;
+        margin-bottom:0;
+        .avatar {
+          width:70px;
+          height:70px;
+        }
+      }
+      .primary-textual{
+        .user-profile-names__primary{
+          font-size: var(--font-up-2);
+          text-align: right;
+        }
+        .user-profile-names__secondary{
+          font-size: var(--font-0);
+          text-align: right;
+        }
+      }
     }
     .controls {
       ul {
@@ -16,6 +35,10 @@
           width: 100%;
         }
       }
+    }
+    .user-profile-image
+    {
+      height: 150px !important;
     }
   }
   .new-user-wrapper {
@@ -99,3 +122,5 @@ body.user-activity-page .bookmark-list-wrapper {
     }
   }
 }
+
+ 
