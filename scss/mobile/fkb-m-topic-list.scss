@@ -129,7 +129,7 @@ body[class*="category-"]:not(.archetype-regular):not(.archetype-banner) {
           order: 2;
           margin-right: 0;
           // padding: 1.25em;
-          // border-radius: var(--d-button-border-radius);
+          border-radius: 0;
           border: none;
           background: var(--tertiary);
           font-size: var(--font-0);
