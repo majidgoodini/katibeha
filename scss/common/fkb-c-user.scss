@@ -42,8 +42,9 @@ h2.username,
       }
 
       .user-profile-image {
-        border-radius: var(--d-default-border-radius) var(--d-default-border-radius) 0 0;
+        // border-radius: var(--d-default-border-radius) var(--d-default-border-radius) 0 0;
         margin-bottom: -15px;
+        
       }
 
       .staff-counters {
@@ -118,6 +119,7 @@ h2.username,
         border-radius: var(--d-default-border-radius);
         max-width: 100%;
         height: auto;
+
       }
     }
   }
